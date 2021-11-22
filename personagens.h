@@ -1,68 +1,85 @@
-//Função para construir partes do corpo formadas por cubo
-void CorpoCubo(float transx, float transy, float transz, float scalx, float scaly, float scalz, int colorx, int colory, int colorz, float tamC){
-   glTranslatef(transx, transy, transz); //A origem do cubo foi transladada para a posição (transx, transy, transz).
-   glScalef(scalx, scaly, scalz);
-   glColor3ub(colorx, colory, colorz);
-   glutSolidCube(tamC);
-}
-
-//Função para construir partes do corpo formadas por esfera
-void CorpoEsfera(float transx, float transy, float transz, int colorx, int colory, int colorz, float esfx, float esfy, float esfz){
-   glTranslatef(transx, transy, transz); //A origem da esfera foi transladada para a posição (transx, transy, ftransz).
-   glColor3ub(colorx, colory, colorz); //Define a cor
-   glutSolidSphere(esfx, esfy, esfz); //Definição (criação) da esfera
-}
-
 void cria_vilao(){
-    //Criação das pernas
+    
     glPushMatrix();
-    //glScalef(0.5, 0.5, 0.5);
-        CorpoCubo(0, 0, 0, 0.3, 0.7, 0.3, 0, 0, 139, 1.0);
-    glPopMatrix();
+        glColor3ub(101, 67, 33);
+        glutSolidSphere(0.7, 20, 20); //Corpo do brigadeiro
+        
+        glColor3ub(255, 255, 255);
+        glTranslatef(0.25,0.15,0.7);  
+        glutSolidSphere(0.1, 20, 20); // Olho direito
 
-    //Criação do tronco do corpo
-    glPushMatrix();
-    //glScalef(0.5, 0.5, 0.5);
-        CorpoCubo(0, 0.6, 0, 0.3, 0.5, 0.3, 144, 238, 144, 1.0);
-    glPopMatrix();
+        glColor3ub(0, 0, 0);
+        glTranslatef(0,0,0.1);  
+        glutSolidSphere(0.05, 20, 20); //íris/Pupila direita
 
-    //Braço direito do personagem
-    glPushMatrix();
-    //glScalef(0.5, 0.5, 0.5);
-        CorpoCubo(0.2, 0.5, 0, 0.1, 0.7, 0.3, 0, 100, 0, 1.0);
-    glPopMatrix();
+        glColor3ub(255, 255, 255);
+        glTranslatef(-0.50,0,0);  
+        glutSolidSphere(0.1, 20, 20); //Olho esquerdo
 
-    //Braço esquerdo do personagem
-    glPushMatrix();
-    //glScalef(0.5, 0.5, 0.5);
-        CorpoCubo(-0.2, 0.5, 0, 0.1, 0.7, 0.3, 0, 100, 0, 1.0);
-    glPopMatrix();
+        glColor3ub(0, 0, 0);
+        glTranslatef(0,0,0.1);  
+        glutSolidSphere(0.05, 20, 20);//Íris/Pupila esquerda
 
-    //Cabeça
-    //glScalef(0.5, 0.5, 0.5);
-    CorpoEsfera(0, 1, 0, 255, 182, 193, 0.25, 20, 20); 
+        glColor3ub(255, 215, 0);
+        glRotatef(90,1,0,0);
+        glTranslatef(0.25,-0.6,-0.4);  
+        glutSolidTorus(0.1,0.5,50,10); //Base da coroa
 
-    //OlhoEsquerdo
-    glPushMatrix();
-    //glScalef(0.5, 0.5, 0.5);
-        CorpoEsfera(-0.04, 0, 0.7, 0, 0, 0, 0.02, 50, 50);
-    glPopMatrix();
+        glColor3ub(255, 215, 0);
+        glRotatef(180,0,1,0);
+        glTranslatef(0.25,0,0.1);  
+        glutSolidCone(0.15,0.35,2,3);//Triângulo da esquerda da coroa
 
-    //OlhoDireito
-    glPushMatrix();
-    //glScalef(0.5, 0.5, 0.5);
-        CorpoEsfera(0.09, 0, 0.7, 0, 0, 0, 0.02, 50, 50);      
+        glColor3ub(255, 215, 0);
+        glRotatef(0,0,0,0);
+        glTranslatef(-0.25,0,0);  
+        glutSolidCone(0.15,0.5,2,3); //Triângulo central da coroa
+
+        glColor3ub(255, 0, 0);
+        glTranslatef(0,0.1,0.15);  
+        glutSolidSphere(0.05, 20, 20); //Pedrinha vermelha da coroa
+
+        glColor3ub(255, 215, 0);
+        glRotatef(0,0,0,0);
+        glTranslatef(-0.25,-0.1,-0.15);   
+        glutSolidCone(0.15,0.35,2,3); //Triangulo da direita da coroa
+
+        glColor3ub(140, 67, 33);
+        glRotatef(70,0,1,0);
+        glTranslatef(0.57,0.7,0.20); 
+        glutSolidCylinder(0.05,0.3,20,10); //Sobrancelha esquerda
+
+        glColor3ub(140, 67, 33);
+        glRotatef(37,0,1,0);
+        glTranslatef(0.08,0,-0.53); 
+        glutSolidCylinder(0.05,0.3,20,10); //Sobrancelha direita
+
+        glColor3ub(255, 255, 255);
+        glRotatef(-17,0,1,0);
+        glTranslatef(0.5,0,0.1); 
+        glutSolidCylinder(0.05,0.3,20,10); //Base da boca
+
+        glColor3ub(0,0,0);
+        glRotatef(0,0,0,0);
+        glTranslatef(0,0.05,0); 
+        glutSolidCylinder(0.008,0.3,20,10); //Linha divisória da boca
+
     glPopMatrix();
 }
 
 //Função para criação da maçã
-void apple(){
+void cereja(){
     glPushMatrix();
-        CorpoEsfera(3, 0, 0.3, 250, 50, 30, 0.3, 50, 50);
+        glTranslatef(3, 0, 0.3); //A origem da esfera foi transladada para a posição (transx, transy, ftransz).
+        glColor3ub(250, 50, 30); //Define a cor
+        glutSolidSphere(0.3, 50, 50); //Definição (criação) da esfera
     glPopMatrix();
     glPushMatrix();
         glRotatef(45, 1, 0, 0);
-        CorpoCubo(3, 1, 0.3, 0.1, 0.6, 0.1, 127, 255, 14, 0.6);
+        glTranslatef(3, 1, 0.3); //A origem do cubo foi transladada para a posição (transx, transy, transz).
+        glScalef(0.1, 0.6, 0.1);
+        glColor3ub(127, 255, 14);
+        glutSolidCube(0.6);
     glPopMatrix();
 }
 
@@ -76,10 +93,6 @@ void personagem(){
     glTranslatef(0,0,0); 
     glRotatef(90,1,0,0);
     glutSolidCone(0.5,1.5,20,10);
-
-    //glColor3ub(255,0,0);
-    //glTranslatef(0,0,0); 
-    //glutSolidSphere(0.15,20,20);
 
     glColor3ub(255, 0, 102);
     glTranslatef(-0.2,0,-0.2); 
@@ -126,5 +139,12 @@ void personagem(){
     glTranslatef(0,0,-0.4); 
     glutSolidCylinder(0.02,0.25,20,10);
 
+   glPopMatrix();
+}
+
+void posiciona_personagem(){
+   glPushMatrix();  
+      glTranslatef(player_x, player_y, 0);
+      personagem();
    glPopMatrix();
 }

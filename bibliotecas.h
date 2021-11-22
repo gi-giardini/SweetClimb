@@ -1,13 +1,15 @@
 //Bibliotecas do C
 #include <stdlib.h>
 #include <stdio.h>
+#include <time.h>
+#include <math.h>
 #include <string.h>
+#include <locale.h>
 
 //Bibliotecas do OpenGL
 #include <GL/freeglut.h>
 #include <GL/glut.h>
 #include <GL/gl.h>
-#include <math.h>
 
 //Biblioteca com a declaração das variáveis globais
 #include "variaveis.h"
@@ -21,6 +23,9 @@
 //Biblioteca para formar as escadas
 #include "escadas.h"
 
+//biblioteca para criacao e movimentacao dos brigadeiros
+#include "brigadeiros.h"
+
 //Biblioteca que possui funções auxiliares para o jogo
 #include "funcoes.h"
 
@@ -30,8 +35,9 @@
 //Biblioteca com os valores de pontuação do jogo
 #include "pontuacao.h"
 
-//Biblioteca responsável por tratar a física do jogo
-//#include "fisica.h"
+//biblioteca para colisao com o brigadeiro e tela de fim de jogo
+#include "fim.h"
 
 //Definição do radiano
 #define incr_radia 0.017453293
+

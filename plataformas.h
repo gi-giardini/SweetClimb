@@ -19,7 +19,7 @@ void plataformas(float px, float py, float tamanho, int i, float tx){
                     glColor3ub(20, 165, 165);
                     glTranslatef(0.95, 18, -0.2);
                     glScalef(0.9, 0.6, 1);
-                    glutSolidCube(1);
+                    glutSolidCube(0.9);
                 glPopMatrix();
             }
             //sobre as escadas da direita
@@ -28,7 +28,7 @@ void plataformas(float px, float py, float tamanho, int i, float tx){
                 glColor3ub(20, 165, 165);
                 glTranslatef(tx+0.2, py+3, 0);
                 glScalef(0.9, 0.6, 1);
-                glutSolidCube(1);
+                glutSolidCube(0.9);
                 glPopMatrix();
             }
         }
