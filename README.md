@@ -1,2 +1,3 @@
 # SweetClimb
-This repository aims to store the game SweetClimb, made using OpenGL as a project for a Computer Graphics class.
+Jogo desenvolvido na matéria de Computação Gráfica durante a graduação em Ciência da Computação na UNESP de São José do Rio Preto.
+Utiliza linguagem C e openGL. Para rodar é necessário compilador gcc.
